@@ -20,14 +20,15 @@
   <body>
     <!-- header -->
     <header class="header">
-      <div class="conteiner header-conteiner">
+      <div class="conteiner">
+        <div class="header-conteiner">
         <nav class="navigation">
           <a href="./index.html" class="header-logo link"
             >Web<span class="header-studio">Studio</span></a
           >
           <ul class="header-list list">
             <li class="header-item">
-              <a href="./index.html" class="header-link link">Studio</a>
+              <a href="./index.html" class="header-link active link">Studio</a>
             </li>
             <li class="header-item">
               <a href="./portfolio.html" class="header-link link">Portfolio</a>
@@ -39,18 +40,19 @@
         </nav>
         <address class="address">
           <ul class="address-list list">
-            <li class="address-links text">
-              <a href="mailto:info@devstudio.com" class="address-item link"
+            <li class="address-item text">
+              <a href="mailto:info@devstudio.com" class="address-links link"
                 >info@devstudio.com</a
               >
             </li>
-            <li class="address-links text">
-              <a href="tel:+110001111111" class="address-item link"
+            <li class="address-item text">
+              <a href="tel:+110001111111" class="address-links link"
                 >+11 (000) 111-11-11</a
               >
             </li>
           </ul>
         </address>
+      </div>
       </div>
     </header>
     <!-- main -->
@@ -59,7 +61,7 @@
       <section class="hero">
         <div class="conteiner">
           <h1 class="hero-title">Effective Solutions for Your Business</h1>
-          <button type="button" class="hero-button button">
+          <button type="s" class="hero-button button" data-modal-open>
             Order Service
           </button>
         </div>
@@ -304,5 +306,11 @@
         </div>
       </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal"><button type="button" class="button close-modal" data-modal-close><svg class="close-icn" width="8px" height="8px">
+        <use href="./images/symbol-defs.svg#close-modal"></use>
+      </svg></button></div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>

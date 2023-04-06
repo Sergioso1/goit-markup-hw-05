@@ -23,6 +23,7 @@ ul {
   --hero-color: #ffffff;
   --footer-color: #f4f4fd;
   --button-color: #4d5ae5;
+  --link-color: #404bbf;
 }
 .conteiner {
   max-width: 1158px;
@@ -48,12 +49,13 @@ body {
 .link {
   text-decoration: none;
   font-style: normal;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .link:hover {
-  color: #404bbf;
+  color: var(--link-color)
 }
 .link:focus {
-  color: #404bbf;
+  color: var(--link-color)
 }
 .button {
   cursor: pointer;
@@ -99,6 +101,7 @@ body {
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 .header-conteiner {
+  display: flex;
   justify-content: space-between;
 }
 .header-list {
@@ -111,16 +114,34 @@ body {
 .navigation {
   display: flex;
 }
-.header-conteiner {
-  display: flex;
-}
+
 .header-link {
   color: var(--second-color);
   display: inline-block;
   padding-top: 24px;
   padding-bottom: 24px;
 }
-.header-item:not(:last-child) {
+.header-item{
+  position: relative;
+}
+.header-link{
+  position: relative;
+}
+.header-link.active::after{
+    content: '';
+    position: absolute;
+    left: 0; 
+    bottom: -2px;
+    width: 100%;
+    height: 4px;
+  border-radius: 2px;
+    background-color:#404BBF;
+  }
+  .header-link.active{
+    color: var(--link-color);
+  }
+
+    .header-item:not(:last-child) {
   margin-right: 40px;
 }
 .header-item {
@@ -130,19 +151,23 @@ body {
 
 /* address */
 .address {
+  display: flex;
   letter-spacing: 0.02em;
   font-style: normal;
 }
 .address-links {
   padding-top: 24px;
   padding-bottom: 24px;
+  display: block;
+  width: 154px;
+  color: var(--regular-color);
+  letter-spacing: 0.02em;
 }
-.address-links:not(:last-child) {
+.address-item:not(:last-child) {
   margin-right: 40px;
 }
 .address-item {
-  color: var(--regular-color);
-  letter-spacing: 0.02em;
+display: flex;
 }
 .address-list {
   display: flex;
@@ -151,6 +176,7 @@ body {
   margin-bottom: 0;
   letter-spacing: 0.02em;
   color: var(--regular-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .addres-list :hover {
   color: #404bbf;
@@ -212,6 +238,7 @@ body {
   font-size: 16px;
   color: #ffffff;
   line-height: 1.5;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero-button:focus {
   color: #404bbf;
@@ -319,6 +346,7 @@ body {
 .works-list {
   display: flex;
   padding: 0;
+  margin: 0;
   gap: 24px;
 }
 .works-img {
@@ -405,12 +433,13 @@ body {
   background-color: var(--button-color);
   justify-content: center;
   align-items: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .soc-link:hover {
-  background: #404bbf;
+  background-color: #404bbf;
 }
 .soc-link:focus {
-  background: #404bbf;
+  background-color: #404bbf;
 }
 .team-icon {
   display: inline-block;
@@ -456,6 +485,9 @@ body {
   justify-content: center;
   align-items: center;
   color: #8e8f99;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .customers-link:hover,
 .customers-link:focus {
@@ -510,6 +542,7 @@ footer {
   background-color: var(--button-color);
   justify-content: center;
   align-items: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .soc-footer-link:hover,
 .soc-footer-link:focus {
@@ -567,6 +600,9 @@ footer {
   line-height: 1.5;
   font-weight: 500;
   font-family: Roboto, sans-serif;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .portfolio-button:hover {
   color: #ffffff;
@@ -586,12 +622,20 @@ footer {
   padding-right: 0;
   padding-bottom: 0;
 }
-.aps-link{
+.aps-link {
   display: block;
+  position: relative;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .aps-link:hover,
-.aps-link:focus{
-  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+.aps-link:focus {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+.aps-link:hover .overlay,
+.aps-link:focus .overlay {
+  transform: translate(0, 0);
 }
 .aps-img {
   display: block;
@@ -616,3 +660,86 @@ footer {
   padding-top: 32px;
   padding-left: 16px;
 }
+.overlay {
+  background: #4d5ae5;
+  mix-blend-mode: normal;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  padding: 40px 32px 162px;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate(0, 100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.apps-img-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.apps-img-wrap:hover .overlay {
+  transform: translate(0, 0);
+}
+/* MODAL */
+.backdrop{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: rgba(46, 47, 66, 0.4);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal{
+  background: #FCFCFC;
+box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+border-radius: 4px;
+
+position: absolute;
+width: 408px;
+height: 576px;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.close-modal{
+  border-radius: 50%;
+  padding: 0;
+  margin: 0;
+  background: #E7E9FC;
+border: 1px solid rgba(0, 0, 0, 0.1);
+display: flex;
+width: 24px;
+height: 24px;
+align-items: center;
+justify-content: center;
+
+position: absolute;
+top: 24px;
+right: 24px;
+transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.close-modal:hover,
+.close-modal:focus{
+  background-color: #404BBF;
+}
+.close-icn{
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.close-modal:hover .close-icn,
+.close-modal:focus .close-icn{
+fill: #FFFFFF;;
+}
+.is-hidden{
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
